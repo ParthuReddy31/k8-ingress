@@ -5,7 +5,7 @@
 ```
 REGION_CODE=us-east-1 
 CLUSTER_NAME=expense 
-ACC_ID=463470981697 
+ACC_ID=<your_AWS_account_ID>
 ```
 * OIDC Provider
 ```

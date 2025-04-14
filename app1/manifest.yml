@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: app1
 spec: 
   selector:   # lables are used as selectors 
     app: app1
@@ -33,3 +33,28 @@ spec:
     - protocol: TCP
       port: 80 #service port
       targetPort: 80
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:463470981697:certificate/831486ae-588c-4222-a782-6226ded389e0
+    alb.ingress.kubernetes.io/group.name: parthudevops
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "app1.parthudevops.space"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80

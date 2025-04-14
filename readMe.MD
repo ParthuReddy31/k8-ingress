@@ -1,9 +1,12 @@
 # ingress Controller
 ### Permissions
-REGION_CODE=us-east-1
-CLUSTER_NAME=expense
-ACC_ID=463470981697
 
+* Initialise 
+```
+REGION_CODE=us-east-1 \
+CLUSTER_NAME=expense \ 
+ACC_ID=463470981697 
+```
 * OIDC Provider
 ```
 eksctl utils associate-iam-oidc-provider \

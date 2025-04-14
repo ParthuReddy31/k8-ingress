@@ -3,8 +3,8 @@
 
 * Initialise 
 ```
-REGION_CODE=us-east-1 \
-CLUSTER_NAME=expense \ 
+REGION_CODE=us-east-1 
+CLUSTER_NAME=expense 
 ACC_ID=463470981697 
 ```
 * OIDC Provider
